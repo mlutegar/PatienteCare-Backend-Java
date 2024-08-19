@@ -1,4 +1,4 @@
-package com.br.patientecare.controller;
+package com.br.patientecare.backend.controller;
 
 import com.br.patientecare.entidades.Paciente;
 import com.br.patientecare.repository.PacienteRepository;
@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/pacientes")
 public class PacienteController {
