@@ -45,8 +45,8 @@ public class AtendimentoController {
             atendimentoAtualizado.setHorario(atendimentoDetails.getHorario());
             atendimentoAtualizado.setData(atendimentoDetails.getData());
             atendimentoAtualizado.setPaciente(atendimentoDetails.getPaciente());
-            atendimentoAtualizado.setSubstancias(atendimentoDetails.getSubstancias());
-            atendimentoAtualizado.setMateriais(atendimentoDetails.getMateriais());
+            atendimentoAtualizado.setTipoAtendimento(atendimentoDetails.getTipoAtendimento());
+            atendimentoAtualizado.setConvenioPlano(atendimentoDetails.getConvenioPlano());
             return ResponseEntity.ok(atendimentoRepository.save(atendimentoAtualizado));
         } else {
             return ResponseEntity.notFound().build();

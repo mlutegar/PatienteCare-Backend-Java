@@ -1,12 +1,10 @@
 package com.br.patientecare.entidades;
 
-import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
-import java.util.List;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Atendimento {
@@ -15,29 +13,30 @@ public class Atendimento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String procedimento;
+    @ManyToOne
+    private Procedimento procedimento;
+
     private String horario;
-    private String data;
-    private String paciente;
+    private String data; // Data do agendamento
 
-    @ElementCollection
-    private List<String> substancias;
+    @ManyToOne
+    private Paciente paciente;
 
-    @ElementCollection
-    private List<String> materiais;
+    private String tipoAtendimento;
+    private String convenioPlano;
 
     // Construtor sem argumentos
     public Atendimento() {
     }
 
     // Construtor com argumentos
-    public Atendimento(String procedimento, String horario, String data, String paciente, List<String> substancias, List<String> materiais) {
+    public Atendimento(Procedimento procedimento, String horario, String data, Paciente paciente, String tipoAtendimento, String convenioPlano) {
         this.procedimento = procedimento;
         this.horario = horario;
         this.data = data;
         this.paciente = paciente;
-        this.substancias = substancias;
-        this.materiais = materiais;
+        this.tipoAtendimento = tipoAtendimento;
+        this.convenioPlano = convenioPlano;
     }
 
     // Getters e Setters
@@ -49,11 +48,11 @@ public class Atendimento {
         this.id = id;
     }
 
-    public String getProcedimento() {
+    public Procedimento getProcedimento() {
         return procedimento;
     }
 
-    public void setProcedimento(String procedimento) {
+    public void setProcedimento(Procedimento procedimento) {
         this.procedimento = procedimento;
     }
 
@@ -73,27 +72,27 @@ public class Atendimento {
         this.data = data;
     }
 
-    public String getPaciente() {
+    public Paciente getPaciente() {
         return paciente;
     }
 
-    public void setPaciente(String paciente) {
+    public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
 
-    public List<String> getSubstancias() {
-        return substancias;
+    public String getTipoAtendimento() {
+        return tipoAtendimento;
     }
 
-    public void setSubstancias(List<String> substancias) {
-        this.substancias = substancias;
+    public void setTipoAtendimento(String tipoAtendimento) {
+        this.tipoAtendimento = tipoAtendimento;
     }
 
-    public List<String> getMateriais() {
-        return materiais;
+    public String getConvenioPlano() {
+        return convenioPlano;
     }
 
-    public void setMateriais(List<String> materiais) {
-        this.materiais = materiais;
+    public void setConvenioPlano(String convenioPlano) {
+        this.convenioPlano = convenioPlano;
     }
 }
