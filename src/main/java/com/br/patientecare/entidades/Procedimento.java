@@ -15,8 +15,8 @@ public class Procedimento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nome;
-    private String descricao;
+    private String nomeProcedimento;
+    private String descricaoProcedimento;
 
     @ElementCollection
     private List<String> substancias;
@@ -24,17 +24,16 @@ public class Procedimento {
     @ElementCollection
     private List<String> materiais;
 
-    @ElementCollection
-    private List<String> naoRecomendado;
+    private String naoRecomendado;
 
     // Construtor sem argumentos
     public Procedimento() {
     }
 
     // Construtor com argumentos
-    public Procedimento(String nome, String descricao, List<String> substancias, List<String> materiais, List<String> naoRecomendado) {
-        this.nome = nome;
-        this.descricao = descricao;
+    public Procedimento(String nomeProcedimento, String descricaoProcedimento, List<String> substancias, List<String> materiais, String naoRecomendado) {
+        this.nomeProcedimento = nomeProcedimento;
+        this.descricaoProcedimento = descricaoProcedimento;
         this.substancias = substancias;
         this.materiais = materiais;
         this.naoRecomendado = naoRecomendado;
@@ -49,20 +48,20 @@ public class Procedimento {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomeProcedimento() {
+        return nomeProcedimento;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeProcedimento(String nomeProcedimento) {
+        this.nomeProcedimento = nomeProcedimento;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getDescricaoProcedimento() {
+        return descricaoProcedimento;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDescricaoProcedimento(String descricaoProcedimento) {
+        this.descricaoProcedimento = descricaoProcedimento;
     }
 
     public List<String> getSubstancias() {
@@ -81,11 +80,11 @@ public class Procedimento {
         this.materiais = materiais;
     }
 
-    public List<String> getNaoRecomendado() {
+    public String getNaoRecomendado() {
         return naoRecomendado;
     }
 
-    public void setNaoRecomendado(List<String> naoRecomendado) {
+    public void setNaoRecomendado(String naoRecomendado) {
         this.naoRecomendado = naoRecomendado;
     }
 }
