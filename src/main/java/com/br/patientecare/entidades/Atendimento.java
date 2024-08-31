@@ -17,7 +17,7 @@ public class Atendimento {
     private Procedimento procedimento;
 
     private String horario;
-    private String data; // Data do agendamento
+    private String dataAgendamento; // Data do agendamento
 
     @ManyToOne
     private Paciente paciente;
@@ -30,10 +30,10 @@ public class Atendimento {
     }
 
     // Construtor com argumentos
-    public Atendimento(Procedimento procedimento, String horario, String data, Paciente paciente, String tipoAtendimento, String convenioPlano) {
+    public Atendimento(Procedimento procedimento, String horario, String dataAgendamento, Paciente paciente, String tipoAtendimento, String convenioPlano) {
         this.procedimento = procedimento;
         this.horario = horario;
-        this.data = data;
+        this.dataAgendamento = dataAgendamento;
         this.paciente = paciente;
         this.tipoAtendimento = tipoAtendimento;
         this.convenioPlano = convenioPlano;
@@ -64,12 +64,12 @@ public class Atendimento {
         this.horario = horario;
     }
 
-    public String getData() {
-        return data;
+    public String getDataAgendamento() {
+        return dataAgendamento;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setDataAgendamento(String data) {
+        this.dataAgendamento = data;
     }
 
     public Paciente getPaciente() {

@@ -43,7 +43,7 @@ public class AtendimentoController {
             Atendimento atendimentoAtualizado = atendimento.get();
             atendimentoAtualizado.setProcedimento(atendimentoDetails.getProcedimento());
             atendimentoAtualizado.setHorario(atendimentoDetails.getHorario());
-            atendimentoAtualizado.setData(atendimentoDetails.getData());
+            atendimentoAtualizado.setDataAgendamento(atendimentoDetails.getDataAgendamento());
             atendimentoAtualizado.setPaciente(atendimentoDetails.getPaciente());
             atendimentoAtualizado.setTipoAtendimento(atendimentoDetails.getTipoAtendimento());
             atendimentoAtualizado.setConvenioPlano(atendimentoDetails.getConvenioPlano());
