@@ -13,7 +13,7 @@ public class Atendimento {
     private Procedimento procedimento;
 
     private String horario;
-    private String dataAgendamento; // Data do agendamento
+    private String dataAgendamento;
 
     @ManyToOne
     private Paciente paciente;
@@ -26,12 +26,16 @@ public class Atendimento {
 
     @Column(length = 1000)
     private String respostaIA;
+
+    // Novo campo para indicar se o atendimento foi arquivado
+    private boolean arquivado;
+
     // Construtor sem argumentos
     public Atendimento() {
     }
 
     // Construtor com argumentos
-    public Atendimento(Procedimento procedimento, String horario, String dataAgendamento, Paciente paciente, String tipoAtendimento, String convenioPlano, String relatorio, String respostaIA) {
+    public Atendimento(Procedimento procedimento, String horario, String dataAgendamento, Paciente paciente, String tipoAtendimento, String convenioPlano, String relatorio, String respostaIA, boolean arquivado) {
         this.procedimento = procedimento;
         this.horario = horario;
         this.dataAgendamento = dataAgendamento;
@@ -40,6 +44,7 @@ public class Atendimento {
         this.convenioPlano = convenioPlano;
         this.relatorio = relatorio;
         this.respostaIA = respostaIA;
+        this.arquivado = arquivado;
     }
 
     // Getters e Setters
@@ -113,5 +118,13 @@ public class Atendimento {
 
     public void setRespostaIA(String respostaIA) {
         this.respostaIA = respostaIA;
+    }
+
+    public boolean isArquivado() {
+        return arquivado;
+    }
+
+    public void setArquivado(boolean arquivado) {
+        this.arquivado = arquivado;
     }
 }

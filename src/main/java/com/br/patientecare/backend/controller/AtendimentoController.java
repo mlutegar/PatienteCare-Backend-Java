@@ -49,11 +49,13 @@ public class AtendimentoController {
             atendimentoAtualizado.setConvenioPlano(atendimentoDetails.getConvenioPlano());
             atendimentoAtualizado.setRelatorio(atendimentoDetails.getRelatorio());
             atendimentoAtualizado.setRespostaIA(atendimentoDetails.getRespostaIA());
+            atendimentoAtualizado.setArquivado(atendimentoDetails.isArquivado()); // Atualiza o status de arquivamento
             return ResponseEntity.ok(atendimentoRepository.save(atendimentoAtualizado));
         } else {
             return ResponseEntity.notFound().build();
         }
     }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteAtendimento(@PathVariable Long id) {
