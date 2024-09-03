@@ -1,10 +1,6 @@
 package com.br.patientecare.entidades;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 @Entity
 public class Atendimento {
@@ -25,18 +21,25 @@ public class Atendimento {
     private String tipoAtendimento;
     private String convenioPlano;
 
+    @Column(length = 1000)
+    private String relatorio;
+
+    @Column(length = 1000)
+    private String respostaIA;
     // Construtor sem argumentos
     public Atendimento() {
     }
 
     // Construtor com argumentos
-    public Atendimento(Procedimento procedimento, String horario, String dataAgendamento, Paciente paciente, String tipoAtendimento, String convenioPlano) {
+    public Atendimento(Procedimento procedimento, String horario, String dataAgendamento, Paciente paciente, String tipoAtendimento, String convenioPlano, String relatorio, String respostaIA) {
         this.procedimento = procedimento;
         this.horario = horario;
         this.dataAgendamento = dataAgendamento;
         this.paciente = paciente;
         this.tipoAtendimento = tipoAtendimento;
         this.convenioPlano = convenioPlano;
+        this.relatorio = relatorio;
+        this.respostaIA = respostaIA;
     }
 
     // Getters e Setters
@@ -68,8 +71,8 @@ public class Atendimento {
         return dataAgendamento;
     }
 
-    public void setDataAgendamento(String data) {
-        this.dataAgendamento = data;
+    public void setDataAgendamento(String dataAgendamento) {
+        this.dataAgendamento = dataAgendamento;
     }
 
     public Paciente getPaciente() {
@@ -94,5 +97,21 @@ public class Atendimento {
 
     public void setConvenioPlano(String convenioPlano) {
         this.convenioPlano = convenioPlano;
+    }
+
+    public String getRelatorio() {
+        return relatorio;
+    }
+
+    public void setRelatorio(String relatorio) {
+        this.relatorio = relatorio;
+    }
+
+    public String getRespostaIA() {
+        return respostaIA;
+    }
+
+    public void setRespostaIA(String respostaIA) {
+        this.respostaIA = respostaIA;
     }
 }

@@ -47,6 +47,8 @@ public class AtendimentoController {
             atendimentoAtualizado.setPaciente(atendimentoDetails.getPaciente());
             atendimentoAtualizado.setTipoAtendimento(atendimentoDetails.getTipoAtendimento());
             atendimentoAtualizado.setConvenioPlano(atendimentoDetails.getConvenioPlano());
+            atendimentoAtualizado.setRelatorio(atendimentoDetails.getRelatorio());
+            atendimentoAtualizado.setRespostaIA(atendimentoDetails.getRespostaIA());
             return ResponseEntity.ok(atendimentoRepository.save(atendimentoAtualizado));
         } else {
             return ResponseEntity.notFound().build();
