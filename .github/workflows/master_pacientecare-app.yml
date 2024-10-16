@@ -25,6 +25,9 @@ jobs:
       - name: List target folder
         run: ls -al target
 
+      - name: Sleep to ensure JAR is created
+        run: sleep 10
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
