@@ -1,4 +1,4 @@
-package com.br.patientecare.controller;
+package com.br.patientecare.backend.controller;
 
 import com.br.patientecare.entidades.Paciente;
 import com.br.patientecare.repository.PacienteRepository;

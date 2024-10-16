@@ -41,8 +41,8 @@ public class ProcedimentoController {
         Optional<Procedimento> procedimento = procedimentoRepository.findById(id);
         if (procedimento.isPresent()) {
             Procedimento procedimentoAtualizado = procedimento.get();
-            procedimentoAtualizado.setNome(procedimentoDetails.getNome());
-            procedimentoAtualizado.setDescricao(procedimentoDetails.getDescricao());
+            procedimentoAtualizado.setNomeProcedimento(procedimentoDetails.getNomeProcedimento());
+            procedimentoAtualizado.setDescricaoProcedimento(procedimentoDetails.getDescricaoProcedimento());
             procedimentoAtualizado.setSubstancias(procedimentoDetails.getSubstancias());
             procedimentoAtualizado.setMateriais(procedimentoDetails.getMateriais());
             procedimentoAtualizado.setNaoRecomendado(procedimentoDetails.getNaoRecomendado());

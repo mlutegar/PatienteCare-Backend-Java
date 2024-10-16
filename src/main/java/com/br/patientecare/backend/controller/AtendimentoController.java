@@ -43,15 +43,19 @@ public class AtendimentoController {
             Atendimento atendimentoAtualizado = atendimento.get();
             atendimentoAtualizado.setProcedimento(atendimentoDetails.getProcedimento());
             atendimentoAtualizado.setHorario(atendimentoDetails.getHorario());
-            atendimentoAtualizado.setData(atendimentoDetails.getData());
+            atendimentoAtualizado.setDataAgendamento(atendimentoDetails.getDataAgendamento());
             atendimentoAtualizado.setPaciente(atendimentoDetails.getPaciente());
-            atendimentoAtualizado.setSubstancias(atendimentoDetails.getSubstancias());
-            atendimentoAtualizado.setMateriais(atendimentoDetails.getMateriais());
+            atendimentoAtualizado.setTipoAtendimento(atendimentoDetails.getTipoAtendimento());
+            atendimentoAtualizado.setConvenioPlano(atendimentoDetails.getConvenioPlano());
+            atendimentoAtualizado.setRelatorio(atendimentoDetails.getRelatorio());
+            atendimentoAtualizado.setRespostaIA(atendimentoDetails.getRespostaIA());
+            atendimentoAtualizado.setArquivado(atendimentoDetails.isArquivado()); // Atualiza o status de arquivamento
             return ResponseEntity.ok(atendimentoRepository.save(atendimentoAtualizado));
         } else {
             return ResponseEntity.notFound().build();
         }
     }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteAtendimento(@PathVariable Long id) {
